@@ -1,0 +1,85 @@
+﻿
+Warning: PHP Startup: Unable to load dynamic library 'zlib' (tried: D:/Programming/Env/laragon/laragon/bin/php/php-8.3.30-Win32-vs16-x64/ext\zlib (The specified module could not be found), D:/Programming/Env/laragon/laragon/bin/php/php-8.3.30-Win32-vs16-x64/ext\php_zlib.dll (The specified module could not be found)) in Unknown on line 0
+composer : Loading 
+composer repositories 
+with package information
+At line:1 char:1
++ composer update 
+--no-interaction > 
+update_log.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo      
+        : NotSpecified: 
+(Loa    ding 
+compose...age inf    
+ormation:String) [], R  
+  emoteException
+    + 
+FullyQualifiedErrorI    
+d : NativeCommandError
+ 
+Updating dependencies
+Your requirements could 
+not be resolved to an 
+installable set of 
+packages.
+
+  Problem 1
+    - Root 
+composer.json requires p
+hpoffice/phpspreadsheet 
+^3.0 -> satisfiable by p
+hpoffice/phpspreadsheet[
+3.10.0, ..., 3.10.4].
+    - phpoffice/phpsprea
+dsheet[3.10.0, ..., 
+3.10.4] require ext-zip 
+* -> it is missing from 
+your system. Install or 
+enable PHP's zip 
+extension.
+
+      Alternatively you 
+can require one of 
+these packages that 
+provide the extension 
+(or parts of it):
+      Keep in mind that 
+the suggestions are 
+automated and may not 
+be valid or safe to use
+      - pecl/zip A zip 
+management extension
+      - 
+badpixxel/paddock Just 
+The Paddock Project
+
+
+To enable extensions, 
+verify that they are 
+enabled in your .ini 
+files:
+    - D:\Programming\Env
+\laragon\laragon\bin\php
+\php-8.3.30-Win32-vs16-x
+64\php.ini
+You can also run `php 
+--ini` in a terminal to 
+see which files are 
+used by PHP in CLI mode.
+Alternatively, you can 
+run Composer with `--ign
+ore-platform-req=ext-zip
+` to temporarily ignore 
+these required 
+extensions.
+
+Use the option 
+--with-all-dependencies 
+(-W) to allow upgrades, 
+downgrades and removals 
+for packages currently 
+locked to specific 
+versions.

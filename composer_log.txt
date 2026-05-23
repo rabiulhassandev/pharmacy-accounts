@@ -1,0 +1,51 @@
+
+Warning: PHP Startup: Unable to load dynamic library 'zlib' (tried: D:/Programming/Env/laragon/laragon/bin/php/php-8.3.30-Win32-vs16-x64/ext\zlib (The specified module could not be found), D:/Programming/Env/laragon/laragon/bin/php/php-8.3.30-Win32-vs16-x64/ext\php_zlib.dll (The specified module could not be found)) in Unknown on line 0
+./composer.json has been updated
+Running composer update phpoffice/phpspreadsheet --with-all-dependencies
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 5 installs, 2 updates, 0 removals
+  - Locking composer/pcre (3.3.2)
+  - Locking maennchen/zipstream-php (3.2.1)
+  - Locking markbaker/complex (3.0.2)
+  - Locking markbaker/matrix (3.0.1)
+  - Locking phpoffice/phpspreadsheet (5.6.0)
+  - Upgrading symfony/console (v7.4.8 => v8.0.8)
+  - Upgrading symfony/string (v7.4.8 => v8.0.8)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Package operations: 5 installs, 2 updates, 0 removals
+  - Syncing symfony/string (v8.0.8) into cache
+  - Syncing symfony/console (v8.0.8) into cache
+    Failed to download markbaker/matrix from dist: The zip extension and unzip/7z commands are both missing, skipping.
+The php.ini used by your command-line PHP is: D:\Programming\Env\laragon\laragon\bin\php\php-8.3.30-Win32-vs16-x64\php.ini
+    Now trying to download from source
+  - Syncing markbaker/matrix (3.0.1) into cache
+    Failed to download markbaker/complex from dist: The zip extension and unzip/7z commands are both missing, skipping.
+The php.ini used by your command-line PHP is: D:\Programming\Env\laragon\laragon\bin\php\php-8.3.30-Win32-vs16-x64\php.ini
+    Now trying to download from source
+  - Syncing markbaker/complex (3.0.2) into cache
+    Failed to download maennchen/zipstream-php from dist: The zip extension and unzip/7z commands are both missing, skipping.
+The php.ini used by your command-line PHP is: D:\Programming\Env\laragon\laragon\bin\php\php-8.3.30-Win32-vs16-x64\php.ini
+    Now trying to download from source
+  - Syncing maennchen/zipstream-php (3.2.1) into cache
+The following exception is caused by a process timeout
+Check https://getcomposer.org/doc/06-config.md#process-timeout for details
+
+In Process.php line 1205:
+                           
+  The process ""C:\Progra  
+  m Files\Git\cmd\git.EXE  
+  " clone --mirror -- htt  
+  ps://github.com/maennch  
+  en/ZipStream-PHP.git C:  
+  /Users/rdxqy/AppData/Lo  
+  cal/Composer/vcs/https-  
+  --github.com-maennchen-  
+  ZipStream-PHP.git/" exc  
+  eeded the timeout of 30  
+  0 seconds.               
+                           
+
+require [--dev] [--dry-run] [--prefer-source] [--prefer-dist] [--prefer-install PREFER-INSTALL] [--fixed] [--no-suggest] [--no-progress] [--no-update] [--no-install] [--no-audit] [--audit-format AUDIT-FORMAT] [--no-security-blocking] [--update-no-dev] [-w|--update-with-dependencies] [-W|--update-with-all-dependencies] [--with-dependencies] [--with-all-dependencies] [--ignore-platform-req IGNORE-PLATFORM-REQ] [--ignore-platform-reqs] [--prefer-stable] [--prefer-lowest] [-m|--minimal-changes] [--sort-packages] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--apcu-autoloader] [--apcu-autoloader-prefix APCU-AUTOLOADER-PREFIX] [--] [<packages>...]
+
