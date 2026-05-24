@@ -34,4 +34,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/settings', [SettingsController::class, 'edit'])->name('settings.edit');
     Route::put('/settings', [SettingsController::class, 'update'])->name('settings.update');
     Route::put('/settings/password', [SettingsController::class, 'updatePassword'])->name('settings.password');
+
+    // Suppliers
+    Route::resource('suppliers', \App\Http\Controllers\SupplierController::class);
+    Route::post('suppliers/{supplier}/purchases', [\App\Http\Controllers\SupplierController::class, 'storePurchase'])->name('suppliers.purchases.store');
+    Route::post('suppliers/{supplier}/payments', [\App\Http\Controllers\SupplierController::class, 'storePayment'])->name('suppliers.payments.store');
+
+    // Customers
+    Route::resource('customers', \App\Http\Controllers\CustomerController::class);
+    Route::post('customers/{customer}/sales', [\App\Http\Controllers\CustomerController::class, 'storeSale'])->name('customers.sales.store');
+    Route::post('customers/{customer}/payments', [\App\Http\Controllers\CustomerController::class, 'storePayment'])->name('customers.payments.store');
 });
