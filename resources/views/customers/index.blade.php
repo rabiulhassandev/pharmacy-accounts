@@ -19,7 +19,7 @@
                 <tr class="hover:bg-gray-700/50">
                     <td class="px-6 py-4">{{ $item->name }}</td>
                     <td class="px-6 py-4">{{ $item->phone }}</td>
-                    <td class="px-6 py-4 font-bold">$ {{ number_format($item->total_due, 2) }}</td>
+                    <td class="px-6 py-4 font-bold">{{ $currency }} {{ number_format($item->total_due, 2) }}</td>
                     <td class="px-6 py-4 text-right">
                         <a href="{{ route('customers.show', $item) }}" class="text-emerald-400 hover:underline mr-3">View & Transactions</a>
                         <a href="{{ route('customers.edit', $item) }}" class="text-emerald-400 hover:underline mr-3">Edit</a>

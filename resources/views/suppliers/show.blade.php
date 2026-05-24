@@ -9,10 +9,14 @@
             </div>
             <div class="inline-flex items-center px-4 py-2 bg-red-500/10 rounded-xl border border-red-500/20 shadow-sm shadow-red-500/5">
                 <span class="text-gray-400 font-medium mr-3">Total Due:</span>
-                <span class="font-bold text-red-500 text-2xl tracking-tight">${{ number_format($supplier->total_due, 2) }}</span>
+                <span class="font-bold text-red-500 text-2xl tracking-tight">{{ $currency }}{{ number_format($supplier->total_due, 2) }}</span>
             </div>
         </div>
         <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 w-full md:w-auto">
+            <a href="{{ route('suppliers.report.pdf', $supplier) }}" class="px-5 py-2.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-100 rounded-xl transition-all shadow-lg shadow-amber-500/10 border border-amber-400/30 hover:border-amber-300/50 text-sm font-semibold flex items-center justify-center hover:scale-105 active:scale-95">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 16v-8m0 8l-3-3m3 3l3-3M5 20h14"></path></svg>
+                Download Report
+            </a>
             <button onclick="document.getElementById('purchaseModal').classList.remove('hidden')" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl transition-all shadow-lg shadow-emerald-500/25 text-sm font-semibold flex items-center justify-center hover:scale-105 active:scale-95">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                 Add Purchase
@@ -132,7 +136,7 @@
                         <select id="payment_purchase_id" name="purchase_id" class="w-full bg-gray-900/80 border border-gray-700 rounded-xl text-white focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-inner text-sm px-4 py-3">
                             <option value="">-- Apply to General Balance --</option>
                             @foreach($unpaidPurchases as $txn)
-                                <option value="{{ $txn->id }}">Voucher: {{ $txn->voucher_no ?? 'N/A' }} | Date: {{ \Carbon\Carbon::parse($txn->date)->format('M d') }} | Due: ${{ number_format($txn->due_amount, 2) }}</option>
+                                <option value="{{ $txn->id }}">Voucher: {{ $txn->voucher_no ?? 'N/A' }} | Date: {{ \Carbon\Carbon::parse($txn->date)->format('M d') }} | Due: {{ $currency }}{{ number_format($txn->due_amount, 2) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -187,12 +191,12 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <div class="font-bold text-white">${{ number_format($purchase->total_amount, 2) }}</div>
-                                <div class="text-xs text-gray-500 mt-1">Paid: ${{ number_format($purchase->paid_amount, 2) }}</div>
+                                <div class="font-bold text-white">{{ $currency }}{{ number_format($purchase->total_amount, 2) }}</div>
+                                <div class="text-xs text-gray-500 mt-1">Paid: {{ $currency }}{{ number_format($purchase->paid_amount, 2) }}</div>
                             </td>
                             <td class="px-6 py-4 text-right">
                                 @if($purchase->due_amount > 0)
-                                    <div class="text-red-400 font-bold">${{ number_format($purchase->due_amount, 2) }}</div>
+                                    <div class="text-red-400 font-bold">{{ $currency }}{{ number_format($purchase->due_amount, 2) }}</div>
                                     <div class="text-[10px] text-red-500/70 uppercase font-bold tracking-widest mt-1">Due</div>
                                 @else
                                     <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">Paid</span>
@@ -266,7 +270,7 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4 text-right align-middle">
-                                <div class="font-bold text-blue-400 text-lg">${{ number_format($payment->amount, 2) }}</div>
+                                <div class="font-bold text-blue-400 text-lg">{{ $currency }}{{ number_format($payment->amount, 2) }}</div>
                                 <div class="text-[10px] text-blue-500/70 uppercase font-bold tracking-widest mt-1">Paid</div>
                             </td>
                         </tr>
