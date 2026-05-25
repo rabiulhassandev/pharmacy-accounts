@@ -13,8 +13,9 @@ class SupplierController extends Controller
     public function index()
     {
         $suppliers = Supplier::all();
+        $currency = Setting::get('currency_symbol', '$');
 
-        return view('suppliers.index', compact('suppliers'));
+        return view('suppliers.index', compact('suppliers', 'currency'));
     }
 
     public function create()
