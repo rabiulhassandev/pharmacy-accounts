@@ -75,6 +75,14 @@
                             <input type="date" name="date" class="w-full rounded-xl border border-gray-700 bg-gray-900/80 px-4 py-2.5 text-white shadow-inner transition-colors focus:border-emerald-500 focus:ring-emerald-500" value="{{ date('Y-m-d') }}" required>
                         </div>
                         <div>
+                            <label class="mb-2 block text-sm font-medium text-gray-300">Category</label>
+                            <select name="category" class="w-full rounded-xl border border-gray-700 bg-gray-900/80 px-4 py-3 text-sm text-white shadow-inner transition-colors focus:border-emerald-500 focus:ring-emerald-500" required>
+                                <option value="Daily Sale">Daily Sale</option>
+                                <option value="Hole Sale">Hole Sale</option>
+                                <option value="Other Sale">Other Sale</option>
+                            </select>
+                        </div>
+                        <div class="sm:col-span-2">
                             <label class="mb-2 block text-sm font-medium text-gray-300">Invoice No.</label>
                             <input type="text" name="invoice_no" placeholder="Optional" class="w-full rounded-xl border border-gray-700 bg-gray-900/80 px-4 py-2.5 text-white shadow-inner transition-colors focus:border-emerald-500 focus:ring-emerald-500">
                         </div>
@@ -177,12 +185,17 @@
                         @forelse ($sales as $sale)
                             <tr class="group transition-colors hover:bg-gray-700/30">
                                 <td class="whitespace-nowrap px-6 py-4">
-                                    <div class="mb-1 font-medium text-gray-200">{{ \Carbon\Carbon::parse($sale->date)->format('M d, Y') }}</div>
-                                    @if ($sale->invoice_no)
-                                        <span class="rounded border border-gray-700 bg-gray-900 px-2 py-0.5 font-mono text-xs text-gray-400">#{{ $sale->invoice_no }}</span>
-                                    @else
-                                        <span class="text-xs text-gray-500">No invoice</span>
-                                    @endif
+                                    <div class="mb-1.5 font-medium text-gray-200">{{ \Carbon\Carbon::parse($sale->date)->format('M d, Y') }}</div>
+                                    <div class="flex flex-wrap gap-1.5 items-center">
+                                        @if ($sale->invoice_no)
+                                            <span class="rounded border border-gray-700 bg-gray-900 px-2 py-0.5 font-mono text-xs text-gray-400">#{{ $sale->invoice_no }}</span>
+                                        @else
+                                            <span class="text-xs text-gray-500">No invoice</span>
+                                        @endif
+                                        <span class="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider {{ $sale->category === 'Daily Sale' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : ($sale->category === 'Hole Sale' ? 'bg-teal-500/10 text-teal-400 border border-teal-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20') }}">
+                                            {{ $sale->category }}
+                                        </span>
+                                    </div>
                                     @if ($sale->details)
                                         <div class="mt-1 max-w-[150px] truncate text-xs text-gray-500" title="{{ $sale->details }}">{{ $sale->details }}</div>
                                     @endif

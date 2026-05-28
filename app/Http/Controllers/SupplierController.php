@@ -80,6 +80,7 @@ class SupplierController extends Controller
         $validated = $request->validate([
             'date' => 'required|date',
             'voucher_no' => 'nullable|string|max:255',
+            'category' => 'required|in:Company,Shop,Other',
             'total_amount' => 'required|numeric|min:0',
             'paid_amount' => 'required|numeric|min:0',
             'details' => 'nullable|string',

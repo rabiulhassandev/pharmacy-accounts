@@ -103,6 +103,7 @@ class CustomerModuleTest extends TestCase
         $response = $this->actingAs($user)->post(route('customers.sales.store', $customer), [
             'date' => '2026-05-24',
             'invoice_no' => 'INV-2001',
+            'category' => 'Daily Sale',
             'total_amount' => 300,
             'paid_amount' => 100,
             'details' => 'Retail sale',
