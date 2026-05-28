@@ -6,6 +6,12 @@
             <h2 class="text-3xl font-extrabold text-white mb-2">Financial Cockpit 👋</h2>
             <p class="text-gray-400">Real-time statistics and accounts overview for {{ $pharmacyName }}.</p>
         </div>
+        <div>
+            <a href="{{ route('reports.monthly.pdf', ['month' => now()->format('Y-m')]) }}" class="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-semibold text-sm hover:bg-emerald-500/20 hover:border-emerald-500/50 hover:text-white transition-all shadow-lg shadow-emerald-500/5">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                Download Monthly Report
+            </a>
+        </div>
     </div>
 
     <!-- Cockpit Cards Grid -->

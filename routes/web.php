@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
     // Exports
     Route::get('/customers/{customer}/report/pdf', [ExportController::class, 'customerPdf'])->name('customers.report.pdf');
     Route::get('/suppliers/{supplier}/report/pdf', [ExportController::class, 'supplierPdf'])->name('suppliers.report.pdf');
+    Route::get('/report/monthly', [ExportController::class, 'monthlyReportPdf'])->name('reports.monthly.pdf');
 
     // Settings
     Route::get('/settings', [SettingsController::class, 'edit'])->name('settings.edit');
