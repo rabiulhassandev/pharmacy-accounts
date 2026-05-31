@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('supplier_id')->constrained()->onDelete('cascade');
             $table->date('date');
             $table->string('voucher_no')->nullable();
+            $table->string('category')->default('Company');
             $table->text('details')->nullable();
             $table->decimal('total_amount', 15, 2)->default(0);
             $table->decimal('paid_amount', 15, 2)->default(0);

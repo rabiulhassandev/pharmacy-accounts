@@ -69,6 +69,14 @@
                             <input type="date" name="date" class="w-full bg-gray-900/80 border border-gray-700 rounded-xl text-white focus:ring-emerald-500 focus:border-emerald-500 transition-colors shadow-inner px-4 py-2.5" value="{{ date('Y-m-d') }}" required>
                         </div>
                         <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Category</label>
+                            <select name="category" class="w-full bg-gray-900/80 border border-gray-700 rounded-xl text-white focus:ring-emerald-500 focus:border-emerald-500 transition-colors shadow-inner text-sm px-4 py-3" required>
+                                <option value="Company">Company</option>
+                                <option value="Shop">Shop</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="sm:col-span-2">
                             <label class="block text-sm font-medium text-gray-300 mb-2">Voucher No.</label>
                             <input type="text" name="voucher_no" placeholder="Optional" class="w-full bg-gray-900/80 border border-gray-700 rounded-xl text-white focus:ring-emerald-500 focus:border-emerald-500 transition-colors shadow-inner px-4 py-2.5">
                         </div>
@@ -180,12 +188,17 @@
                         @forelse($purchases as $purchase)
                         <tr class="hover:bg-gray-700/30 transition-colors group">
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-gray-200 font-medium mb-1">{{ \Carbon\Carbon::parse($purchase->date)->format('M d, Y') }}</div>
-                                @if($purchase->voucher_no)
-                                    <span class="font-mono text-xs bg-gray-900 px-2 py-0.5 rounded border border-gray-700 text-gray-400">#{{ $purchase->voucher_no }}</span>
-                                @else
-                                    <span class="text-xs text-gray-500">No voucher</span>
-                                @endif
+                                <div class="text-gray-200 font-medium mb-1.5">{{ \Carbon\Carbon::parse($purchase->date)->format('M d, Y') }}</div>
+                                <div class="flex flex-wrap gap-1.5 items-center">
+                                    @if($purchase->voucher_no)
+                                        <span class="font-mono text-xs bg-gray-900 px-2 py-0.5 rounded border border-gray-700 text-gray-400">#{{ $purchase->voucher_no }}</span>
+                                    @else
+                                        <span class="text-xs text-gray-500">No voucher</span>
+                                    @endif
+                                    <span class="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider {{ $purchase->category === 'Company' ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : ($purchase->category === 'Shop' ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20') }}">
+                                        {{ $purchase->category }}
+                                    </span>
+                                </div>
                                 @if($purchase->details)
                                     <div class="text-xs text-gray-500 mt-1 max-w-[150px] truncate" title="{{ $purchase->details }}">{{ $purchase->details }}</div>
                                 @endif
