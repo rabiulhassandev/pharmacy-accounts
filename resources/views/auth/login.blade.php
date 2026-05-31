@@ -24,9 +24,9 @@
                 @csrf
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email <span class="text-emerald-400">*</span></label>
-                    <input type="email" name="email" id="email" value="{{ old('email', env('APP_ENV') === 'local' ? 'admin@mokka.com' : '') }}" required autofocus
+                    <input type="email" name="email" id="email" value="{{ old('email') }}" required autofocus
                            class="w-full bg-gray-900/50 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder-gray-600"
-                           placeholder="admin@mokka.com">
+                           placeholder="enter your email">
                     @error('email')
                         <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
                     @enderror
@@ -34,9 +34,9 @@
 
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-300 mb-1">Password <span class="text-emerald-400">*</span></label>
-                    <input type="password" name="password" id="password" required value="{{ env('APP_ENV') === 'local' ? 'password' : '' }}"
+                    <input type="password" name="password" id="password" required 
                            class="w-full bg-gray-900/50 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder-gray-600"
-                           placeholder="••••••••">
+                           placeholder="enter your password">
                     @error('password')
                         <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
                     @enderror
